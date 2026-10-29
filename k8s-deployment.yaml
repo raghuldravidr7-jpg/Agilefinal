@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-bill-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-bill
+  template:
+    metadata:
+      labels:
+        app: shopping-bill
+    spec:
+      containers:
+      - name: shopping-bill-container
+        image: YOUR_DOCKERHUB_USERNAME/shopping-bill-app:IMAGE_TAG
+        imagePullPolicy: Always
